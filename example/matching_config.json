@@ -1,10 +1,10 @@
 {
-  "number_of_questions": 1,
+  "number_of_questions": 2,
   "type": "matching",
   "name": "Név",
   "questiontext": "Szamold ki a és b összegét és különbségét. a = {0:.2f}, b = {1:.0f}",
   "generalfeedback": "Általános visszajelzés",
-  "deafaultgrade": 1.0000,
+  "deafaultgrade": 1,
   "penalty": 0.333333,
   "hidden": 0,
   "shuffleanswers": "True",

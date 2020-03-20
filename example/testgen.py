@@ -17,6 +17,7 @@ with open('../example/matching_config.json') as file:
     for i in range(0, config['number_of_questions']):
 
         question = Question(config['type'])
+        question.set_name(config['name'])
 
 
         input = gen_rand_input.gen_rand_input(config['input_parameters'])
