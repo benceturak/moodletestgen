@@ -1,0 +1,16 @@
+{
+  "numer_of_question": 1,
+  "name": "Név",
+  "type": "matching",
+  "questiontext": "A kérdés szövege",
+  "generalfeedback": "Általános visszajelzés",
+  "deafaultgrade": 1.0000,
+  "penalty": 0.333333,
+  "hidden": 0,
+  "single": "true",
+  
+
+
+
+
+}
