@@ -1,39 +1,20 @@
-import json
 
 import sys
 sys.path.append('../src')
-import gen_rand_input
-from question import Question
-from subquestion import Subquestion
-from answer import Answer
+
+
 from quiz import Quiz
 import xml.etree.ElementTree as ET
 
-with open('../example/matching_config.json') as file:
-    config = json.load(file)
+#open config file
+with open(sys.argv[1]) as file:
 
-    quiz = Quiz()
-
-    for i in range(0, config['number_of_questions']):
-
-        question = Question(config['type'])
-        question.set_name(config['name'])
+    #new quiz object
+    quiz = Quiz(file)
 
 
-        input = gen_rand_input.gen_rand_input(config['input_parameters'])
-        print(input)
-        question.set_questiontext(config['questiontext'].format(*input))
+    #generate questions
+    quiz.gen_questions()
 
-        for q in config['questions']:
-            module = __import__(q['answer'])
-
-            answer = Answer(eval('module.' + q['answer'] + '(input)'))
-
-            subquestion = Subquestion(q['question'], answer)
-            question.add_subquestion(subquestion)
-
-        quiz.add_question(question)
-
-    tree = ET.ElementTree(quiz)
-
-    tree.write(config['output_file'], 'utf-8')
+    #write quoiz to file in moodle XML format
+    quiz.write()

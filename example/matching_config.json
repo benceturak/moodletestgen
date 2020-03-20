@@ -26,11 +26,13 @@
   "questions": [
       {
         "question": "a+b",
-        "answer": "addition"
+        "answer": "addition",
+        "fraction": 50
       },
       {
         "question": "a-b",
-        "answer": "substraction"
+        "answer": "substraction",
+        "fraction": 50
       }
   ],
   "number_of_additional_false_answers": 2,
