@@ -42,30 +42,53 @@ class Quiz(ET.Element):
                     eval("module." + str(tag).title() + '(val)')
                 except Exception as err:
                     if tag == 'questions':
-                        #generate subquestions and their answers
-                        for q in self.config['questions']:
-                            #import answers module
-                            #the answer generator function have to be in a module. The modules and funcions name must be same and it is in the config file
-                            module = __import__(q['answer'])
+                        if self.config['type'] == 'matching':
+                            #generate subquestions and their answers
+                            for q in self.config['questions']:
+                                #import answers module
+                                #the answer generator function have to be in a module. The modules and funcions name must be same and it is in the config file
+                                module = __import__(q['answer'])
 
-                            #call the answer generator function with the generated input parameters
-                            answer = Answer(round(eval('module.' + q['answer'] + '(input)'), q['round']), q['fraction'])
+                                #call the answer generator function with the generated input parameters
+                                answer = Answer(round(eval('module.' + q['answer'] + '(input)'), q['round']), q['fraction'])
 
-                            #new subguestion
-                            subquestion = Subquestion(q['question'], answer)
+                                #new subguestion
+                                subquestion = Subquestion(q['question'], answer)
 
-                            #add subquestion to question
-                            question.add_subquestion(subquestion)
-
-                            for i in range(0, self.config['number_of_additional_fake_answers']):
-                                #new fake subguestion
-                                fakeinput = gen_rand_input.gen_rand_input(self.config['input_parameters'])
-                                answer = Answer(round(eval('module.' + q['answer'] + '(fakeinput)'), q['round']), 0)
-
-                                subquestion = Subquestion('', answer)
-
-                                #add fake subquestion to question
+                                #add subquestion to question
                                 question.add_subquestion(subquestion)
+
+                                for i in range(0, self.config['number_of_additional_fake_answers']):
+                                    #new fake subguestion
+                                    fakeinput = gen_rand_input.gen_rand_input(self.config['input_parameters'])
+                                    answer = Answer(round(eval('module.' + q['answer'] + '(fakeinput)'), q['round']), 0)
+
+                                    subquestion = Subquestion('', answer)
+
+                                    #add fake subquestion to question
+                                    question.add_subquestion(subquestion)
+                        elif self.config['type'] == 'multichoice':
+                            for q in self.config['questions']:
+                                #import answers module
+                                #the answer generator function have to be in a module. The modules and funcions name must be same and it is in the config file
+                                module = __import__(q['answer'])
+
+                                #call the answer generator function with the generated input parameters
+                                answer = Answer(round(eval('module.' + q['answer'] + '(input)'), q['round']), q['fraction'])
+
+                                #new subguestion
+
+                                #add subquestion to question
+                                question.set_answer(answer)
+
+                                for i in range(0, self.config['number_of_additional_fake_answers']):
+                                    #new fake subguestion
+                                    fakeinput = gen_rand_input.gen_rand_input(self.config['input_parameters'])
+                                    answer = Answer(round(eval('module.' + q['answer'] + '(fakeinput)'), q['round']), 0)
+
+
+                                    #add fake subquestion to question
+                                    question.add_subquestion(answer)
 
                     else:
                         print("{0}".format(err))
