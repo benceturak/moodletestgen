@@ -76,18 +76,17 @@ class Quiz(ET.Element):
                                 #call the answer generator function with the generated input parameters
                                 answer = Answer(round(eval('module.' + q['answer'] + '(input)'), q['round']), q['fraction'])
 
-                                #new subguestion
 
-                                #add subquestion to question
+                                #add answer to question
                                 question.set_answer(answer)
 
                                 for i in range(0, self.config['number_of_additional_fake_answers']):
-                                    #new fake subguestion
+                                    #new fake answer
                                     fakeinput = gen_rand_input.gen_rand_input(self.config['input_parameters'])
                                     answer = Answer(round(eval('module.' + q['answer'] + '(fakeinput)'), q['round']), 0)
 
 
-                                    #add fake subquestion to question
+                                    #add fake answer to question
                                     question.add_subquestion(answer)
 
                     else:
