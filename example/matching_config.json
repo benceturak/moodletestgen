@@ -1,13 +1,13 @@
 {
-  "number_of_questions": 2,
+  "number_of_questions": 1,
   "type": "matching",
   "name": "Név",
-  "questiontext": "Szamold ki a és b összegét és különbségét. a = {0:.2f}, b = {1:.0f}",
+  "questiontext": "Szamold ki a és b összegét és különbségét. a = {0:.2f}, b = {1:.2f}",
   "generalfeedback": "Általános visszajelzés",
-  "deafaultgrade": 1,
+  "defaultgrade": 1,
   "penalty": 0.333333,
   "hidden": 0,
-  "shuffleanswers": "True",
+  "shuffleanswers": true,
   "correctfeedback": "Válasza helyes.",
   "partiallycorrectfeedback": "Válasza részben helyes.",
   "incorrectfeedback": "Válasza helytelen.",
@@ -20,21 +20,23 @@
       {
         "min": 2000,
         "max": 3000,
-        "round": 0
+        "round": 2
       }
   ],
   "questions": [
       {
         "question": "a+b",
         "answer": "addition",
-        "fraction": 50
+        "fraction": 50,
+        "round": 2
       },
       {
         "question": "a-b",
         "answer": "substraction",
-        "fraction": 50
+        "fraction": 50,
+        "round": 2
       }
   ],
-  "number_of_additional_false_answers": 2,
+  "number_of_additional_fake_answers": 2,
   "output_file": "moodle.xml"
 }
