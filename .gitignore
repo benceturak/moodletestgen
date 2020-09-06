@@ -1,1 +1,3 @@
 *.xml
+src/__pycache__
+example/__pycache__

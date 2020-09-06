@@ -2,7 +2,7 @@
   "number_of_questions": 1,
   "type": "numerical",
   "name": "first trial",
-  "questiontext": "Szamold ki a és b különbségét. a = {0:.2f}, b = {1:.2f}",
+  "questiontext": "Szamold ki a és b különbségét. <b>a = {0:.2f}</b>, b = {1:.2f}",
   "generalfeedback": "Általános visszajelzés",
   "defaultgrade": 1,
   "penalty": 0.333333,
@@ -29,7 +29,14 @@
         "answer": "substraction",
         "fraction": 100,
         "round": 3,
-		"tolerance": 0.01
+		    "tolerance": 0.01
+      },
+      {
+        "question": "a+b",
+        "answer": "addition",
+        "fraction":50,
+        "round": 3,
+        "tolerance": 0.01
       }
   ],
   "number_of_additional_fake_answers": 2,
