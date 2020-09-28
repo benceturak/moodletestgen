@@ -9,11 +9,12 @@ class Answer(ET.Element):
         :param fraction: facttion of questions grade (int) (percent)
     '''
 
-    def __init__(self, answer, fraction = 100):
+    def __init__(self, answer, fraction = 100, tolerance = 0.001):
         super(Answer, self).__init__('answer')
 
         self.set('format', 'moodle_auto_format')
         self.set_fraction(str(fraction))
+        self.set_tolerance(str(tolerance))
 
         self.append(Text(answer))
 
