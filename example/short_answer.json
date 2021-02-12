@@ -1,0 +1,30 @@
+{
+  "number_of_questions": 10,
+  "type": "shortanswer",
+  "name": "deg->dms",
+  "questiontext": "Convert the angle given below in degree to dms unit using the d-mm-ss format with second precision. Pay attention to the leading zeros in minute and second <b> {0:.5f}</b>",
+  "generalfeedback": "Általános visszajelzés",
+  "defaultgrade": 1,
+  "penalty": 0.333333,
+  "hidden": 0,
+  "shuffleanswers": true,
+  "correctfeedback": "Válasza helyes.",
+  "partiallycorrectfeedback": "Válasza részben helyes.",
+  "incorrectfeedback": "Válasza helytelen.",
+  "input_parameters": [
+      {
+        "min": 0,
+        "max": 360,
+        "round": 5
+      }
+  ],
+  "questions": [
+      {
+        "question": "dms",
+        "answer": "dms",
+        "fraction": 100
+      }
+  ],
+  "number_of_additional_fake_answers": 2,
+  "output_file": "dms.xml"
+}

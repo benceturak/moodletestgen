@@ -100,6 +100,20 @@ class Quiz(ET.Element):
 
                                 #add answer to question
                                 question.set_answer(answer)
+
+                        elif self.config['type'] == 'shortanswer':
+                            for q in self.config['questions']:
+                                #import answers module
+                                #the answer generator function have to be in a module. The modules and funcions name must be same and it is in the config file
+                                module = __import__(q['answer'])
+
+                                #call the answer generator function with the generated input parameters
+                                answer = Answer(eval('module.' + q['answer'] + '(input)'), q['fraction'])
+
+
+                                #add answer to question
+                                question.set_answer(answer)
+
                     else:
                         print("{0}".format(err))
 
